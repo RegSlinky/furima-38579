@@ -145,9 +145,9 @@
         </div>
         <% end %>
       </li>
-      <% end %>
+    <% end %>
 
-      <% if @item = nil %>
+      <% if @items[0] == nil %>
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
