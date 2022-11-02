@@ -59,10 +59,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
       it '価格が半角数値以外は保存できない' do
-        @item.price = ３００
+        @item.price = 'あああ'
         @item.valid?
-        binding.pry
-        expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
+        expect(@item.errors.full_messages).to include("Price is out of setting range")
       end
       it '価格が¥300以下では保存できない' do
         @item.price = 200
