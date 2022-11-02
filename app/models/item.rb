@@ -15,10 +15,7 @@ class Item < ApplicationRecord
 
   validates :price, presence: true
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "is out of setting range" }
-  
-  validates :price, format: { with: /\A[0-9]+\z/ }
-  validates :price, numericality: { only_integer: true , message: "is invalid. Input half-width characters." }
-
+ 
   with_options numericality: { other_than: 1, message: "can't be blank" } do
     validates :category_id
     validates :sales_status_id
