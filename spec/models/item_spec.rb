@@ -58,8 +58,8 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
-      it '価格が全角数値では保存できない' do
-        @item.price = '２０００'
+      it '価格が半角数値以外は保存できない' do
+        @item.price = 'かんじ'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is invalid. Input half-width characters.")
       end
@@ -69,7 +69,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is out of setting range")
       end
       it '価格が¥9,999,999以上では保存できない' do
-        @item.price = 119,999,999
+        @item.price = 90000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is out of setting range")
       end
