@@ -5,31 +5,28 @@
     <h1 class='transaction-title-text'>
       購入内容の確認
     </h1>
-    <%# 購入内容の表示 %>
+
     <div class='buy-item-info'>
       <%= image_tag "item-sample.png", class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
-          <%= @order.item %>
+          <%= @order.item.item %>
         </h2>
         <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= @order.price %></p>
-          <p class='item-price-sub-text'><%= @order.shipping_fee_status.name %></p>
+          <p class='item-price-text'>¥<%= @order.item.price %></p>
+          <p class='item-price-sub-text'><%= @order.item.shipping_fee_status.name %></p>
         </div>
       </div>
     </div>
-    <%# /購入内容の表示 %>
 
-    <%# 支払額の表示 %>
     <div class='item-payment'>
       <h1 class='item-payment-title'>
         支払金額
       </h1>
       <p class='item-payment-price'>
-        ¥<%= "販売価格" %>
+        ¥<%= @order.item.price %>
       </p>
     </div>
-    <%# /支払額の表示 %>
 
     <%= form_with id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
     <%# カード情報の入力 %>
@@ -72,7 +69,6 @@
     </div>
     <%# /カード情報の入力 %>
     
-    <%# 配送先の入力 %>
     <div class='shipping-address-form'>
       <h1 class='info-input-haedline'>
         配送先入力
@@ -120,7 +116,7 @@
         <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
       </div>
     </div>
-    <%# /配送先の入力 %>
+
     <div class='buy-btn'>
       <%= f.submit "購入" ,class:"buy-red-btn", id:"button" %>
     </div>
