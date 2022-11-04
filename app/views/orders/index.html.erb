@@ -10,11 +10,11 @@
       <%= image_tag "item-sample.png", class: 'buy-item-img' %>
       <div class='buy-item-right-content'>
         <h2 class='buy-item-text'>
-          <%= "商品名" %>
+          <%= @order.item %>
         </h2>
         <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= '999,999,999' %></p>
-          <p class='item-price-sub-text'><%= '配送料負担' %></p>
+          <p class='item-price-text'>¥<%= @order.price %></p>
+          <p class='item-price-sub-text'><%= @order.shipping_fee_status.name %></p>
         </div>
       </div>
     </div>
@@ -103,21 +103,21 @@
           <label class="form-text">番地</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :addresses, class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
+        <%= f.text_field :address, class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">建物名</label>
           <span class="form-any">任意</span>
         </div>
-        <%= f.text_field :hoge, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+        <%= f.text_field :building, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
       </div>
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">電話番号</label>
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_field :hoge, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+        <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
       </div>
     </div>
     <%# /配送先の入力 %>
