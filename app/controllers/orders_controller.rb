@@ -5,9 +5,12 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
   end
 
+  def new
+  end
+
   def create
-    @order = Order.create.new(order_params)
-    Destination.create.new(destination_params)
+    @order = Order.create(order_params)
+    Destination.create(destination_params)
     redirect_to root_path
   end
 
