@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
-  def new
+  before_action :authenticate_user!, except: :index
+
+  def index
   end
 
   def create
