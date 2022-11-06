@@ -43,12 +43,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Shipping fee status can't be blank")
       end
-      it '発送までの日数の情報が初期値では保存できない' do
+      it '発送元の地域の情報が初期値では保存できない' do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end 
-      it '発送元の地域の情報が初期値では保存できない' do
+      it '発送までの日数の情報が初期値では保存できない' do
         @item.schedule_delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Schedule delivery can't be blank")
