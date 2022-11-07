@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   before_action :move_to_index
 
   def index
-    @item = Item.find(params[:item_id])
     @order_destination = OrderDestination.new
   end
 
