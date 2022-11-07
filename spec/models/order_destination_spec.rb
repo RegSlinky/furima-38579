@@ -60,7 +60,7 @@ RSpec.describe OrderDestination, type: :model do
           expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
         end
         it '電話番号に半角数字以外が含まれている場合は購入できないこと' do
-          @order_destination.phone_number = '電話ばんごう'
+          @order_destination.phone_number = '09012345abc'
           @order_destination.valid?
           expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
         end
